@@ -1,0 +1,16 @@
+[
+  {
+    "codigo_empresa": "00423",
+    "nombre_empresa": "Asesoria Gestinem SL",
+    "nombre_banco": "Sabadell",
+    "subcuenta_banco": "57200001",
+    "subcuenta_default": "55500000",
+    "digitos_subcuenta": "8",
+    "columna_fecha": "A",
+    "columna_importe": "F",
+    "columna_concepto": "D",
+    "fila_inicio": "2",
+    "ejercicio": "2024",
+    "conceptos": []
+  }
+]
