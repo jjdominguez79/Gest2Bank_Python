@@ -12,5 +12,24 @@
     "fila_inicio": "2",
     "ejercicio": "2024",
     "conceptos": []
+  },
+  {
+    "codigo_empresa": "00177",
+    "nombre_empresa": "Bodegotrans Logistica SL",
+    "nombre_banco": "Caixabank 0056069",
+    "subcuenta_banco": "57200001",
+    "subcuenta_default": "55500000",
+    "digitos_subcuenta": "8",
+    "columna_fecha": "A",
+    "columna_importe": "E",
+    "columna_concepto": "C",
+    "fila_inicio": "2",
+    "ejercicio": "2025",
+    "conceptos": [
+      {
+        "filtro": "*Nom*",
+        "subcuenta": "46500000"
+      }
+    ]
   }
 ]
