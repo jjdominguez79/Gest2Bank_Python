@@ -1,8 +1,69 @@
 {
-  "extractos": [
+  "empresas": [
+    {
+      "codigo": "00423",
+      "nombre": "Empresa Demo, S.L.",
+      "excel": {
+        "primera_fila_procesar": 2,
+        "columnas": {
+          "Fecha Asiento": "A",
+          "Fecha Expedicion": "A",
+          "Fecha Operacion": "A",
+          "Descripcion Factura": "V",
+          "Numero Factura": "E",
+          "NIF Cliente Proveedor": "H",
+          "Nombre Cliente Proveedor": "G",
+          "Cuenta Cliente Proveedor": "U",
+          "Cuenta Compras Ventas": "W",
+          "Cuenta IVA": "",
+          "Cuenta Recargo": "",
+          "Cuenta Retenciones": "",
+          "Base": "N",
+          "Porcentaje IVA": "O",
+          "Cuota IVA": "P",
+          "Porcentaje Retencion IRPF": "",
+          "Cuota Retencion IRPF": "",
+          "Importe": "N",
+          "Concepto": "V"
+        },
+        "ignorar_filas": "Q=NOPROCESARFACTURA",
+        "condicion_cuenta_generica": "D=PARTICULAR"
+      }
+    },
+    {
+      "codigo": "00001",
+      "nombre": "Comercial Norte, S.A.",
+      "excel": {
+        "primera_fila_procesar": 2,
+        "columnas": {
+          "Fecha Asiento": "A",
+          "Fecha Expedicion": "A",
+          "Fecha Operacion": "A",
+          "Descripcion Factura": "V",
+          "Numero Factura": "E",
+          "NIF Cliente Proveedor": "H",
+          "Nombre Cliente Proveedor": "G",
+          "Cuenta Cliente Proveedor": "U",
+          "Cuenta Compras Ventas": "W",
+          "Cuenta IVA": "",
+          "Cuenta Recargo": "",
+          "Cuenta Retenciones": "",
+          "Base": "N",
+          "Porcentaje IVA": "O",
+          "Cuota IVA": "P",
+          "Porcentaje Retencion IRPF": "",
+          "Cuota Retencion IRPF": "",
+          "Importe": "N",
+          "Concepto": "V"
+        },
+        "ignorar_filas": "Q=NOPROCESARFACTURA",
+        "condicion_cuenta_generica": "D=PARTICULAR"
+      }
+    }
+  ],
+  "bancos": [
     {
       "codigo_empresa": "00423",
-      "nombre_empresa": "Empresa Demo, S.L.",
       "banco": "Banco Demo",
       "subcuenta_banco": "57200000",
       "subcuenta_por_defecto": "62900000",
@@ -17,13 +78,73 @@
           "patron": "*segs*",
           "subcuenta": "62510000"
         }
-      ]
+      ],
+      "excel_override": false,
+      "excel": {
+        "primera_fila_procesar": 2,
+        "ignorar_filas": "Q=NOPROCESARFACTURA",
+        "condicion_cuenta_generica": "D=PARTICULAR",
+        "columnas": {
+          "Serie": "B",
+          "Numero Factura": "E",
+          "Fecha Asiento": "A",
+          "Fecha Expedicion": "A",
+          "Fecha Operacion": "A",
+          "Descripcion Factura": "V",
+          "NIF Cliente Proveedor": "H",
+          "Nombre Cliente Proveedor": "G",
+          "Cuenta Cliente Proveedor": "U",
+          "Cuenta Compras Ventas": "W",
+          "Cuenta IVA": "",
+          "Cuenta Retenciones": "",
+          "Base": "N",
+          "Porcentaje IVA": "O",
+          "Cuota IVA": "P",
+          "Porcentaje Retencion IRPF": "",
+          "Cuota Retencion IRPF": "",
+          "Importe": "N",
+          "Concepto": "V",
+          "Fecha Registro SII": "",
+          "Numero Factura Largo SII": "",
+          "Descripcion Ampliada Factura SII": "",
+          "Fecha Factura A Rectificar": "",
+          "Numero Factura A Rectificar": "",
+          "DUA": "",
+          "Cuenta Proveedor Importacion": "",
+          "Tipo Factura SII": "",
+          "Clave Tipo Factura SII": "",
+          "NIF Representante": "",
+          "Es Toda La Factura Percibida En Metalico": "",
+          "Importe Percibido Metalico": "",
+          "Es Toda La Factura Transmision Inmueble Sujeto IVA": "",
+          "Importe Transmision Inmuebles Sujeto IVA": "",
+          "Factura Tique Inicial SII": "",
+          "Factura Tique Final SII": "",
+          "Numero Documentos Incluidos En La Serie": "",
+          "Emitida Por Terceros SII": "",
+          "Emitida Varios Destinatarios SII": "",
+          "Emitida Cupones Bonificaciones SII": "",
+          "Clave Retencion": "",
+          "Subclave Retencion": "",
+          "Naturaleza Retencion": "",
+          "Cuenta Tesoreria Cobro Pago": "",
+          "Tipo FACTURA Factura Abono Rectificativa": "",
+          "Va A Iva": "",
+          "Factura En Prorrata": "",
+          "Afecta Modelo415": "",
+          "Marca Criterio Caja": "",
+          "Documento": "",
+          "Departamento Analitica": "",
+          "Porcentaje Analitica": "",
+          "Importe Analitica": ""
+        }
+      }
     }
   ],
   "facturas_emitidas": [
     {
       "codigo_empresa": "00423",
-      "ejercicio": 2025,
+      "nombre": "Config general",
       "digitos_plan": 8,
       "cliente_por_columna": true,
       "col_cliente_codigo": "NIF",
@@ -39,10 +160,6 @@
         {
           "patron": "*serv*",
           "subcuenta_ingreso": "70000000"
-        },
-        {
-          "patron": "*manten*",
-          "subcuenta_ingreso": "70500000"
         }
       ],
       "tipos_iva": [
@@ -59,13 +176,75 @@
           "cuenta_iva": "47720000"
         }
       ],
-      "soporta_retencion": true
+      "soporta_retencion": true,
+      "excel_override": false,
+      "cuenta_tercero_generica": "43000000",
+      "excel": {
+        "primera_fila_procesar": 2,
+        "ignorar_filas": "Q=NOPROCESARFACTURA",
+        "condicion_cuenta_generica": "D=PARTICULAR",
+        "columnas": {
+          "Serie": "B",
+          "Numero Factura": "E",
+          "Fecha Asiento": "A",
+          "Fecha Expedicion": "A",
+          "Fecha Operacion": "A",
+          "Descripcion Factura": "V",
+          "NIF Cliente Proveedor": "H",
+          "Nombre Cliente Proveedor": "G",
+          "Cuenta Cliente Proveedor": "U",
+          "Cuenta Compras Ventas": "W",
+          "Cuenta IVA": "",
+          "Cuenta Retenciones": "",
+          "Base": "N",
+          "Porcentaje IVA": "O",
+          "Cuota IVA": "P",
+          "Porcentaje Retencion IRPF": "",
+          "Cuota Retencion IRPF": "",
+          "Importe": "N",
+          "Concepto": "V",
+          "Fecha Registro SII": "",
+          "Numero Factura Largo SII": "",
+          "Descripcion Ampliada Factura SII": "",
+          "Fecha Factura A Rectificar": "",
+          "Numero Factura A Rectificar": "",
+          "DUA": "",
+          "Cuenta Proveedor Importacion": "",
+          "Tipo Factura SII": "",
+          "Clave Tipo Factura SII": "",
+          "NIF Representante": "",
+          "Es Toda La Factura Percibida En Metalico": "",
+          "Importe Percibido Metalico": "",
+          "Es Toda La Factura Transmision Inmueble Sujeto IVA": "",
+          "Importe Transmision Inmuebles Sujeto IVA": "",
+          "Factura Tique Inicial SII": "",
+          "Factura Tique Final SII": "",
+          "Numero Documentos Incluidos En La Serie": "",
+          "Emitida Por Terceros SII": "",
+          "Emitida Varios Destinatarios SII": "",
+          "Emitida Cupones Bonificaciones SII": "",
+          "Clave Retencion": "",
+          "Subclave Retencion": "",
+          "Naturaleza Retencion": "",
+          "Cuenta Tesoreria Cobro Pago": "",
+          "Tipo FACTURA Factura Abono Rectificativa": "",
+          "Va A Iva": "",
+          "Factura En Prorrata": "",
+          "Afecta Modelo415": "",
+          "Marca Criterio Caja": "",
+          "Documento": "",
+          "Departamento Analitica": "",
+          "Porcentaje Analitica": "",
+          "Importe Analitica": ""
+        }
+      },
+      "cuenta_cliente_por_defecto": "43000000"
     }
   ],
   "facturas_recibidas": [
     {
       "codigo_empresa": "00423",
-      "ejercicio": 2025,
+      "nombre": "Proveedores general",
       "digitos_plan": 8,
       "proveedor_por_columna": true,
       "col_proveedor_codigo": "NIF",
@@ -77,10 +256,6 @@
         {
           "patron": "*luz*",
           "subcuenta_gasto": "62800000"
-        },
-        {
-          "patron": "*sumin*",
-          "subcuenta_gasto": "60200000"
         }
       ],
       "tipos_iva": [
@@ -97,7 +272,69 @@
           "cuenta_iva": "47220000"
         }
       ],
-      "soporta_retencion": true
+      "soporta_retencion": true,
+      "excel_override": false,
+      "cuenta_tercero_generica": "40000000",
+      "excel": {
+        "primera_fila_procesar": 2,
+        "ignorar_filas": "Q=NOPROCESARFACTURA",
+        "condicion_cuenta_generica": "D=PARTICULAR",
+        "columnas": {
+          "Serie": "B",
+          "Numero Factura": "E",
+          "Fecha Asiento": "A",
+          "Fecha Expedicion": "A",
+          "Fecha Operacion": "A",
+          "Descripcion Factura": "V",
+          "NIF Cliente Proveedor": "H",
+          "Nombre Cliente Proveedor": "G",
+          "Cuenta Cliente Proveedor": "U",
+          "Cuenta Compras Ventas": "W",
+          "Cuenta IVA": "",
+          "Cuenta Retenciones": "",
+          "Base": "N",
+          "Porcentaje IVA": "O",
+          "Cuota IVA": "P",
+          "Porcentaje Retencion IRPF": "",
+          "Cuota Retencion IRPF": "",
+          "Importe": "N",
+          "Concepto": "V",
+          "Fecha Registro SII": "",
+          "Numero Factura Largo SII": "",
+          "Descripcion Ampliada Factura SII": "",
+          "Fecha Factura A Rectificar": "",
+          "Numero Factura A Rectificar": "",
+          "DUA": "",
+          "Cuenta Proveedor Importacion": "",
+          "Tipo Factura SII": "",
+          "Clave Tipo Factura SII": "",
+          "NIF Representante": "",
+          "Es Toda La Factura Percibida En Metalico": "",
+          "Importe Percibido Metalico": "",
+          "Es Toda La Factura Transmision Inmueble Sujeto IVA": "",
+          "Importe Transmision Inmuebles Sujeto IVA": "",
+          "Factura Tique Inicial SII": "",
+          "Factura Tique Final SII": "",
+          "Numero Documentos Incluidos En La Serie": "",
+          "Emitida Por Terceros SII": "",
+          "Emitida Varios Destinatarios SII": "",
+          "Emitida Cupones Bonificaciones SII": "",
+          "Clave Retencion": "",
+          "Subclave Retencion": "",
+          "Naturaleza Retencion": "",
+          "Cuenta Tesoreria Cobro Pago": "",
+          "Tipo FACTURA Factura Abono Rectificativa": "",
+          "Va A Iva": "",
+          "Factura En Prorrata": "",
+          "Afecta Modelo415": "",
+          "Marca Criterio Caja": "",
+          "Documento": "",
+          "Departamento Analitica": "",
+          "Porcentaje Analitica": "",
+          "Importe Analitica": ""
+        }
+      },
+      "cuenta_proveedor_por_defecto": "40000000"
     }
   ]
 }

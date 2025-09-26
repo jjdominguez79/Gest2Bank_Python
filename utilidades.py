@@ -19,8 +19,7 @@ def fmt_fecha(dt):
     return dt.strftime("%Y%m%d")
 
 def fmt_importe_pos(x):
-    from decimal import Decimal
-    return f"{abs(Decimal(str(x))):.2f}"
+    return f"{abs(float(x)):.2f}"
 
 def pad_subcuenta(sc: str, ndig: int):
     sc = (sc or "").strip()
@@ -33,3 +32,14 @@ def construir_nombre_salida(ruta_elegida: str, codigo_empresa: str):
     destino = Path(ruta_elegida)
     carpeta = destino if destino.is_dir() else destino.parent
     return carpeta / f"{codigo_empresa}.dat"
+
+def col_letter_to_index(letter: str) -> int:
+    letter = (letter or "").strip().upper()
+    if not letter:
+        return -1
+    idx = 0
+    for ch in letter:
+        if not ('A' <= ch <= 'Z'):
+            raise ValueError(f"Columna inválida: {letter}")
+        idx = idx * 26 + (ord(ch) - ord('A') + 1)
+    return idx - 1  # zero-based

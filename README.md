@@ -1,26 +1,22 @@
-# Gest2Bank (Extendido)
+# Gest2Bank – Flujo por Empresa
 
-Generación de `suenlace.dat` para **extractos bancarios** y **facturas (emitidas/recibidas)**.
-
-## Novedades
-- Importes en salida **siempre positivos**; el sentido contable lo marca `D/H`.
-- Nombre de fichero de salida = **`<codigo_empresa>.dat`**.
-- Nuevas pantallas: Facturas → Emitidas / Recibidas.
-- Plantillas ampliadas: `facturas_emitidas` y `facturas_recibidas` en `plantillas/plantillas.json`.
+Flujo rediseñado:
+1) Seleccionas la **empresa**.
+2) Ves/editar **plantillas** de esa empresa (Bancos, Emitidas, Recibidas) en una sola pantalla.
+3) Eliges **qué enlace** quieres generar (Bancos o Facturas) y la **plantilla** de esa empresa.
+4) Importes en fichero **siempre positivos**; el D/H define el sentido.
+5) El nombre del fichero generado es **`<codigo_empresa>.dat`**.
 
 ## Requisitos
-```
-pip install pandas openpyxl Pillow
+```bash
+pip install -r requirements.txt
 ```
 
 ## Ejecutar
-```
+```bash
 python main.py
 ```
 
-## Excel esperado
-Columnas: `Fecha, Serie, Número, NIF, Nombre, Base, IVA_pct, CuotaIVA, Retencion_pct, CuotaRetencion, Total, Descripcion` (los nombres pueden variar; se normalizan).
-
-## Salida
-- Extractos: pares `I/U` por movimiento.
-- Facturas: formato tabular `T` (una línea por cuenta). Puedes adaptar el render si necesitas `I/U`.
+## Notas
+- Plantillas en `plantillas/plantillas.json` con una sección `empresas` y tres listas: `bancos`, `facturas_emitidas`, `facturas_recibidas`.
+- Edición de plantillas **integrada** en la UI (sin ventanas emergentes).

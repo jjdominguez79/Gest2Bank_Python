@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List
+from typing import List
 from decimal import Decimal
 from utilidades import d2, fmt_fecha, fmt_importe_pos, SEP, pad_subcuenta
 
@@ -26,12 +26,5 @@ def formar_tercero(prefijo: str, codigo: str, ndig: int) -> str:
 def render_tabular(lineas: List[Linea], ndig: int) -> List[str]:
     out = []
     for ln in lineas:
-        out.append(SEP.join([
-            "T",
-            fmt_fecha(ln.fecha),
-            pad_subcuenta(ln.subcuenta, ndig),
-            ln.dh,
-            fmt_importe_pos(ln.importe),
-            (ln.concepto or "").strip()
-        ]))
+        out.append(SEP.join(["T", fmt_fecha(ln.fecha), pad_subcuenta(ln.subcuenta, ndig), ln.dh, fmt_importe_pos(ln.importe), (ln.concepto or "").strip()]))
     return out

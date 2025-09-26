@@ -1,4 +1,4 @@
-from utilidades import SEP, fmt_fecha, fmt_importe_pos, pad_subcuenta, construir_nombre_salida
+from utilidades import SEP, fmt_fecha, fmt_importe_pos, pad_subcuenta
 
 def linea_I(fecha, subcta_banco, importe, concepto, ndig):
     dh = "D" if float(importe) < 0 else "H"
@@ -9,7 +9,5 @@ def linea_U(fecha, subcta_contra, importe, concepto, ndig):
     return SEP.join(["U", fmt_fecha(fecha), pad_subcuenta(subcta_contra, ndig), dh, fmt_importe_pos(importe), (concepto or "").strip()])
 
 def apuntes_extracto(fecha, concepto, importe, subcta_banco, subcta_contra, ndigitos):
-    return [
-        linea_I(fecha, subcta_banco, importe, concepto, ndigitos),
-        linea_U(fecha, subcta_contra, importe, concepto, ndigitos)
-    ]
+    return [linea_I(fecha, subcta_banco, importe, concepto, ndigitos),
+            linea_U(fecha, subcta_contra, importe, concepto, ndigitos)]
