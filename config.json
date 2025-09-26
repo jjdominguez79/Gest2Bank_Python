@@ -1,3 +1,5 @@
 {
-  "ruta_plantillas": "plantillas/plantillas.json"
+  "app_name": "Gest2Bank",
+  "version": "2.0",
+  "default_templates_path": "plantillas/plantillas.json"
 }

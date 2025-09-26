@@ -1,35 +1,103 @@
-[
-  {
-    "codigo_empresa": "00423",
-    "nombre_empresa": "Asesoria Gestinem SL",
-    "nombre_banco": "Sabadell",
-    "subcuenta_banco": "57200001",
-    "subcuenta_default": "55500000",
-    "digitos_subcuenta": "8",
-    "columna_fecha": "A",
-    "columna_importe": "F",
-    "columna_concepto": "D",
-    "fila_inicio": "2",
-    "ejercicio": "2024",
-    "conceptos": []
-  },
-  {
-    "codigo_empresa": "00177",
-    "nombre_empresa": "Bodegotrans Logistica SL",
-    "nombre_banco": "Caixabank 0056069",
-    "subcuenta_banco": "57200001",
-    "subcuenta_default": "55500000",
-    "digitos_subcuenta": "8",
-    "columna_fecha": "A",
-    "columna_importe": "E",
-    "columna_concepto": "C",
-    "fila_inicio": "2",
-    "ejercicio": "2025",
-    "conceptos": [
-      {
-        "filtro": "*Nom*",
-        "subcuenta": "46500000"
-      }
-    ]
-  }
-]
+{
+  "extractos": [
+    {
+      "codigo_empresa": "00423",
+      "nombre_empresa": "Empresa Demo, S.L.",
+      "banco": "Banco Demo",
+      "subcuenta_banco": "57200000",
+      "subcuenta_por_defecto": "62900000",
+      "digitos_plan": 8,
+      "ejercicio": 2025,
+      "conceptos": [
+        {
+          "patron": "*comi*",
+          "subcuenta": "62600000"
+        },
+        {
+          "patron": "*segs*",
+          "subcuenta": "62510000"
+        }
+      ]
+    }
+  ],
+  "facturas_emitidas": [
+    {
+      "codigo_empresa": "00423",
+      "ejercicio": 2025,
+      "digitos_plan": 8,
+      "cliente_por_columna": true,
+      "col_cliente_codigo": "NIF",
+      "cuenta_cliente_prefijo": "430",
+      "cuenta_ingreso_por_defecto": "70000000",
+      "cuenta_iva_repercutido_defecto": "47700000",
+      "cuenta_retenciones_irpf": "47510000",
+      "series_rectificativas": [
+        "R",
+        "RECT"
+      ],
+      "mapas_concepto": [
+        {
+          "patron": "*serv*",
+          "subcuenta_ingreso": "70000000"
+        },
+        {
+          "patron": "*manten*",
+          "subcuenta_ingreso": "70500000"
+        }
+      ],
+      "tipos_iva": [
+        {
+          "porcentaje": 21,
+          "cuenta_iva": "47700000"
+        },
+        {
+          "porcentaje": 10,
+          "cuenta_iva": "47710000"
+        },
+        {
+          "porcentaje": 4,
+          "cuenta_iva": "47720000"
+        }
+      ],
+      "soporta_retencion": true
+    }
+  ],
+  "facturas_recibidas": [
+    {
+      "codigo_empresa": "00423",
+      "ejercicio": 2025,
+      "digitos_plan": 8,
+      "proveedor_por_columna": true,
+      "col_proveedor_codigo": "NIF",
+      "cuenta_proveedor_prefijo": "400",
+      "cuenta_gasto_por_defecto": "62900000",
+      "cuenta_iva_soportado_defecto": "47200000",
+      "cuenta_retenciones_irpf": "47510000",
+      "mapas_concepto": [
+        {
+          "patron": "*luz*",
+          "subcuenta_gasto": "62800000"
+        },
+        {
+          "patron": "*sumin*",
+          "subcuenta_gasto": "60200000"
+        }
+      ],
+      "tipos_iva": [
+        {
+          "porcentaje": 21,
+          "cuenta_iva": "47200000"
+        },
+        {
+          "porcentaje": 10,
+          "cuenta_iva": "47210000"
+        },
+        {
+          "porcentaje": 4,
+          "cuenta_iva": "47220000"
+        }
+      ],
+      "soporta_retencion": true
+    }
+  ]
+}

@@ -1,38 +1,41 @@
+import json
+from pathlib import Path
 
-import os, json
-from tkinter import filedialog
+class GestorPlantillas:
+    def __init__(self, path_json: Path):
+        self.path = Path(path_json)
+        self.data = {}
+        self._load()
 
-CONFIG_FILE = "config.json"
+    def _load(self):
+        if not self.path.exists():
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            self.path.write_text('{"extractos":[],"facturas_emitidas":[],"facturas_recibidas":[]}', encoding="utf-8")
+        self.data = json.loads(self.path.read_text(encoding="utf-8"))
 
-def obtener_configuracion():
-    if os.path.exists(CONFIG_FILE):
-        try:
-            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
-                return json.load(f).get("ruta_plantillas", "")
-        except:
-            return ""
-    return ""
+    def listar_extractos(self):
+        return self.data.get("extractos", [])
 
-def establecer_configuracion():
-    ruta = filedialog.askopenfilename(title="Seleccionar archivo de plantillas",
-                                      filetypes=[("Archivos JSON", "*.json")])
-    if ruta:
-        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
-            json.dump({"ruta_plantillas": ruta}, f, indent=2, ensure_ascii=False)
-        return ruta
-    return None
+    def listar_emitidas(self):
+        return self.data.get("facturas_emitidas", [])
 
-def cargar_plantillas(ruta_json):
-    if not ruta_json or not os.path.exists(ruta_json):
-        return []
-    with open(ruta_json, "r", encoding="utf-8") as f:
-        data = json.load(f)
-        # Asegurar formato lista
-        if isinstance(data, dict):
-            return data.get("plantillas", [])
-        return data
+    def listar_recibidas(self):
+        return self.data.get("facturas_recibidas", [])
 
-def guardar_plantillas(ruta_json, plantillas):
-    # Permitimos guardar como lista simple
-    with open(ruta_json, "w", encoding="utf-8") as f:
-        json.dump(plantillas, f, indent=2, ensure_ascii=False)
+    def buscar_extracto(self, codigo, banco):
+        for p in self.listar_extractos():
+            if p.get("codigo_empresa")==codigo and p.get("banco")==banco:
+                return p
+        return None
+
+    def buscar_emitidas(self, codigo):
+        for p in self.listar_emitidas():
+            if p.get("codigo_empresa")==codigo:
+                return p
+        return None
+
+    def buscar_recibidas(self, codigo):
+        for p in self.listar_recibidas():
+            if p.get("codigo_empresa")==codigo:
+                return p
+        return None

@@ -1,32 +1,26 @@
+import tkinter as tk
+from tkinter import ttk
+from pathlib import Path
 
-import ttkbootstrap as tb
-from ttkbootstrap.constants import *
-from PIL import Image, ImageTk
-import os
+def build_home(root, logo_path: Path | None):
+    frame = ttk.Frame(root)
+    frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
 
-def mostrar_pantalla_inicio(parent):
-    for w in parent.winfo_children():
-        w.destroy()
-
-    frame = tb.Frame(parent, padding=20)
-    frame.pack(fill="both", expand=True)
-
-    # Logo (el usuario debe poner su propio logo.png junto a main.py)
-    logo_path = "logo.png"
-    if os.path.exists(logo_path):
+    if logo_path and Path(logo_path).exists():
         try:
-            img = Image.open(logo_path).resize((420, 140))
-            ph = ImageTk.PhotoImage(img)
-            lbl = tb.Label(frame, image=ph)
-            lbl.image = ph
-            lbl.pack(pady=20)
-        except:
-            tb.Label(frame, text="[No se pudo cargar el logotipo]").pack(pady=20)
+            from PIL import Image, ImageTk
+            img = Image.open(logo_path).resize((200,200))
+            photo = ImageTk.PhotoImage(img)
+            lbl = ttk.Label(frame, image=photo); lbl.image = photo; lbl.pack(pady=8)
+        except Exception:
+            ttk.Label(frame, text=f"(Logo no disponible: {logo_path})").pack()
 
+    ttk.Label(frame, text="Gest2Bank", font=("Segoe UI", 20, "bold")).pack(pady=6)
     instrucciones = (
-        "1) Revisa/edita o crea una plantilla en la sección 'Plantillas'.\n"
-        "2) Ve a 'Generar fichero' y selecciona plantilla, Excel y hoja.\n"
-        "3) Previsualiza los datos.\n"
-        "4) Genera 'suenlace_XXXXX.dat' para importar en A3ECO."
+        "1) Verifica/edita tus plantillas en JSON.\n"
+        "2) Usa 'Extractos' para generar suenlace de movimientos bancarios.\n"
+        "3) Usa 'Facturas' para emitidas/recibidas.\n"
     )
-    tb.Label(frame, text=instrucciones, justify="center", font=("Segoe UI", 14)).pack(pady=8)
+    ttk.Label(frame, text=instrucciones, justify=tk.LEFT).pack(pady=6)
+
+    return frame
